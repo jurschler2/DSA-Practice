@@ -5,7 +5,7 @@ This repository has been woven together using several sources. The ordering and 
 ## Table of Contents
 
 1. [Arrays and Strings] (src/1. Arrays and Strings/)
-2. [Linked Lists] (src/2.-Linked-Lists/)
+2. [Linked Lists] (src/2.%20Linked%20Lists/)
 3. [Stacks and Queues] (src/3. Stacks and Queues/)
 4. [Trees and Graphs] (src/4. Trees and Graphs/)
 5. [Bit Manipulation] (src/5. Bit Manipulation/)
