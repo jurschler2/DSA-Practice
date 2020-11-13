@@ -54,11 +54,56 @@ class LinkedList {
 
   pop() {
 
+    if (!this.head) return null;
+
+    let temp;
+
+    if (this.length === 1) {
+      
+      temp = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length -= 1;
+      return temp.val;
+
+    } else {
+
+      let current = this.head;
+      let count = 0;
+
+      while (count !== this.length - 2) {
+        current = current.next;
+        count += 1;
+      }
+
+      temp = this.tail;
+      this.tail = current;
+      this.length -= 1;
+      return temp.val;
+    }
+
   }
 
   /** shift(): return & remove first item. */
 
   shift() {
+
+    if (!this.head) return null;
+
+    let temp;
+
+    if (this.length === 1) {
+      temp = this.head;
+      this.head = null;
+      this.tail = null;
+      this.length -= 1;
+      return temp.val;
+    } else {
+      temp = this.head;
+      this.head = this.head.next;
+      this.length -= 1;
+      return temp.val
+    }
 
   }
 
