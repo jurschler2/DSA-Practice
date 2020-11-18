@@ -21,12 +21,25 @@ class Queue {
 
   enqueue(val) {
 
+    let newNode = new Node(val);
+
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    this.size += 1;
+    return undefined;
   }
 
   /** dequeue(): remove the node from the start of the queue
    * and return its value. Should throw an error if the queue is empty. */
 
   dequeue() {
+
+    
 
   }
 
