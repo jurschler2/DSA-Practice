@@ -131,11 +131,42 @@ class LinkedList {
 
   setAt(idx, val) {
 
+    if (idx >= this.length || idx < 0) return null;
+
+    let count = 0;
+    let current = this.head;
+
+    while (count !== idx) {
+      count++;
+      current = current.next;
+    }
+
+    current.val = val;
+
   }
 
   /** insertAt(idx, val): add node w/val before idx. */
 
   insertAt(idx, val) {
+
+    if (idx > this.length || idx < 0) return null;
+
+    
+    if (idx === 0) return this.unshift(val);
+    if (idx === this.length) return this.push(val);
+    
+    let current = this.head;
+    let count = 0;
+    
+    while (count !== idx - 1) {
+      count++;
+      current = current.next;
+    }
+    
+    let newNode = new Node(val);
+    newNode.next = current.next;
+    current.next = newNode;
+    this.length += 1;
 
   }
 
@@ -143,12 +174,57 @@ class LinkedList {
 
   removeAt(idx) {
 
+    if (idx > this.length - 1 || idx < 0) return null;
+  
+    if (idx === 0) return this.shift();
+    if (idx === this.length - 1) return this.pop();
+
+    let current = this.head;
+    let count = 0;
+    
+    while (count !== idx - 1) {
+      count++;
+      current = current.next;
+    }
+
+    let removed = current.next;
+    current.next = current.next.next;
+    this.length -= 1;
+    return removed.val;
   }
 
   /** average(): return an average of all values in the list */
 
   average() {
-    
+
+    let total = 0;
+
+    if (this.length === 0) return 0;
+
+    let current = this.head;
+
+    while (current) {
+      total += current.val;
+      current = current.next;
+    }
+    return total / this.length;
+  }
+
+  /** print(): returns an array of all itmes in the list */
+
+  print() {
+
+    let output = [];
+
+    if (this.length === 0) return output;
+
+    let current = this.head;
+
+    while (current) {
+      output.push(current.val);
+      current = current.next;
+    }
+    return output;
   }
 }
 
