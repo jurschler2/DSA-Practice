@@ -59,11 +59,23 @@ class Queue {
 
   peek() {
 
+    if (!this.head) {
+      return null;
+    } else {
+      return this.head.val;
+    }
+
   }
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
 
   isEmpty() {
+
+    if (this.size > 0) {
+      return false
+    } else {
+      return true;
+    }
 
   }
 }
