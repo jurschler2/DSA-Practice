@@ -100,6 +100,16 @@ class LinkedList {
 
   getAt(idx) {
 
+    if (idx >= this.length || idx < 0) return null;
+
+    let count = 0;
+    let temp = this.head;
+
+    while (count !== idx) {
+      temp = temp.next;
+      count++;
+    }
+    return temp.val;
   }
 
   /** setAt(idx, val): set val at idx to val */
