@@ -116,24 +116,80 @@ class LinkedList {
 
   setAt(idx, val) {
 
+    if (idx >= this.length || idx < 0) return null;
+
+    let count = 0;
+    let temp = this.head;
+
+    while (count !== idx) {
+      temp = temp.next;
+      count++;
+    }
+    temp.val = val;
   }
 
   /** insertAt(idx, val): add node w/val before idx. */
 
   insertAt(idx, val) {
 
+    if (idx > this.length || idx < 0) return null;
+
+    
+    if (idx === 0) return this.unshift(val);
+    if (idx === this.length) return this.push(val);
+    
+    let current = this.head;
+    let count = 0;
+    
+    while (count !== idx - 1) {
+      count++;
+      current = current.next;
+    }
+    
+    let newNode = new Node(val);
+    newNode.next = current.next;
+    current.next = newNode;
+    this.length += 1; 
   }
 
   /** removeAt(idx): return & remove item at idx, */
 
   removeAt(idx) {
 
+    if (idx >= this.length || idx < 0) return null;
+
+    if (idx === 0) return this.shift();
+    if (idx === this.length - 1) return this.pop();
+
+    let count = 0;
+    let temp = this.head;
+    let rem;
+
+    while (count !== idx - 1) {
+      temp = temp.next
+      count++;
+    }
+    rem = temp.next;
+    temp.next = temp.next.next;
+    this.length -= 1;
+    return rem.val;
+
   }
 
   /** average(): return an average of all values in the list */
 
   average() {
-    
+
+    if (!this.head) return 0;
+
+    let sum = 0;
+    let temp = this.head;
+
+    while (temp) {
+      sum += temp.val;
+      temp = temp.next;
+    }
+    return sum / this.length;
   }
 }
 
